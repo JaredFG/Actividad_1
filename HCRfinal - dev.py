@@ -78,14 +78,14 @@ def HCR():
 
 
 def main():
-    P = HCR()
-    while len(P) > 22:
-        reiniciar_sistema()
-        print ('\nBuscando una mejor solución, Longitud del Path', len(P))
-        P = HCR()
-    print (P)
-    print (len(P))
-            
-main()
 
-  
+    P = HCR()# se llama a la funcion HCR la cual asigna el path a recorrer
+    while len(P) > 22:#se hace un ciclo repitiendo los path posibles hasta encontrar el minimo optimo
+        reiniciar_sistema()# se reinicia el juego poniendo a los animales al inicio
+        print ('\nBuscando una mejor solución, Longitud del Path', len(P))#se imprime la solcion y su tamaño de pasos
+        P = HCR()#se repite el proceso para encontrar un nuevo path
+    print (P)#se imprime el path con el mejor numero de pasos
+    print (len(P))#se imprime el tamaño del path
+            
+main()#se llama a la funcion main que inicia el programa
+
