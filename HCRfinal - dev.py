@@ -31,35 +31,57 @@ def valida_estado(L):
     return True
 
 def reiniciar_sistema():
-    global Lado_A, Lado_B, Path
+    '''
+    Funcion que reinicia las variables del codigo. 
+    No tiene parametros y no devuelve nada.
+    Se llama cuando ocurre un estado invalido o se llega a una solucion insficiente.
+    Implica que todos los personajes esten en el origen, y nadie en el destino, sin
+    ningun movimiento en el path.
+    '''
+
+    global Lado_A, Lado_B, Path     # variables origen y destino globales
     
-    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']
-    Lado_B = []
-    Path = []
+    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']     # variable lado origen
+    Lado_B = []                                         # variable lado destino
+    Path = []                                           # variable movimientos realizados
     
 
 def HCR():
-    F = Lado_A
-    D = Lado_B
+    '''
+    Funcion que lleva a cabo la dinamica de la situacion hasta una conclusion.
+    No tiene parametros.
+    Devuelve el camino de la solucion encontrada.
+    Inicializa las variables e itera hasta obtener una solucion.
+    Reinicia el sistema si es que encuentra un estado invalido. 
+    '''
+
+    # inicia variables
+    F = Lado_A              # variable lado origen
+    D = Lado_B              # variable lado destino
+    # mientras el lado destino no contenga a los 4 personjes, itera, pues no ha encontrado solucion
     while len(Lado_B) != 4:
-        p1, p2 = Viaje(F, D)
+        p1, p2 = Viaje(F, D)        # primer viaje
+        # valida estados de ambos lados
         if valida_estado (F) and valida_estado (D):
-            #print ('Estado valido, continuamos')
-            if F == Lado_A:
-                Path.append('A->B :')
-            else:
-                Path.append('B->A :')
+            # estado valido, continua
+            if F == Lado_A:                 # si es lado origen, el movimiento fue de origen a destino
+                Path.append('A->B :')       # añade movimiento a la lista
+            else:                           # sino, es lado destino, movimiento destino a origen
+                Path.append('B->A :')       # añade movimiento a la lista
+            # añade personajes del origen y del destino
             Path.append(p1)
             Path.append(p2)
             
+            # swap de lados; origen swap destino
             Temp = F
             F = D
-            D = Temp      
+            D = Temp
         else:
-            #print ('Estado inválido, REINICIO DEL SISTE;A')
+            # sstado inválido, reinicia sistema
             reiniciar_sistema()
             F = Lado_A
             D = Lado_B
+    # devuelve el camino de la solucion obtenida
     return (Path)
 
 
