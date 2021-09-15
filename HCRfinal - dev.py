@@ -64,6 +64,7 @@ def HCR():
 
 
 def main():
+
     P = HCR()# se llama a la funcion HCR la cual asigna el path a recorrer
     while len(P) > 22:#se hace un ciclo repitiendo los path posibles hasta encontrar el minimo optimo
         reiniciar_sistema()# se reinicia el juego poniendo a los animales al inicio
@@ -74,4 +75,3 @@ def main():
             
 main()#se llama a la funcion main que inicia el programa
 
-  
