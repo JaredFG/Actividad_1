@@ -1,39 +1,53 @@
-
+#Utilizamos la libreria random 
 import random
 
-Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']
+#iniciamos las variables de ambos lados del rio  
+Lado_A = ['Granjero', 'Zorro', 'Ganso', 'Maiz']
 Lado_B = []
 Path = []
 
+#funcion que escoje una variable aleatoria de la lista que entra  
 def seleccion(L):
+    #seleccion aleatoria de la entrada L
     op = random.randint(0,len(L)-1)
+    #regresamos el valor que se escogio de manera aleatoria 
     return (L[op])
 
+#funcion que mueve el elemento de la lista de la fuente al destino 
 def Viaje(F, D):
+    #tomamos un valor aleatorio de la fuente
     p1 = seleccion(F)
     #print ('Selección -> ', p1)
+    #si el valor es distinto a granjero, movemos el elemento de la fuente al destino
     if p1 != 'Granjero':
         F.remove(p1)
         D.append(p1)
-
+    #si solo esta el granjero, lo movemos de la fuente al destino 
     F.remove('Granjero')
     D.append('Granjero')
 
     #print (F)
     #print (D)
+    #regresamos wl valor de granjero junto con el otro elemento de la lista  
     return ('Granjero',p1)
 
+#Validamos que las dos condiciones impuestas por el juego para perder no se cumplan
 def valida_estado(L):
-    if 'Maiz' in L and 'Ganzo' in L and len(L) == 2:
+    #checamos la lista de entrada para ver si estan juntos el ganso y el maiz 
+    if 'Maiz' in L and 'Ganso' in L and len(L) == 2:
+        #si se cumple la condicion, se levanta la bandera False y se reinicia  
         return False
-    elif 'Zorro' in L and 'Ganzo' in L and len(L) == 2:
+     #checamos la lista de entrada para ver si estan juntos el zorro y el ganso
+    elif 'Zorro' in L and 'Ganso' in L and len(L) == 2:
+        #si se cumple la condicion, se levanta la bandera False y se reinicia 
         return False
+    #si no se cumplen  las condiciones, se levanta l bandera True y el juego continua
     return True
 
 def reiniciar_sistema():
     global Lado_A, Lado_B, Path
     
-    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']
+    Lado_A = ['Granjero', 'Zorro', 'Ganso', 'Maiz']
     Lado_B = []
     Path = []
     
