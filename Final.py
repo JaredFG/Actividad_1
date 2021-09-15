@@ -150,6 +150,15 @@ corn        = pygame.image.load('corn.jpg')
 duck        = pygame.image.load('duck.jpg')
 farmer      = pygame.image.load('farmer.jpg')
 
+# Resize imagenes
+BoatRight = pygame.transform.scale(BoatRight, (50, 70))
+BoatLeft = pygame.transform.scale(BoatLeft, (50, 70))
+char = pygame.transform.scale(char, (50, 70))
+fox = pygame.transform.scale(fox, (50, 70))
+corn = pygame.transform.scale(corn, (50, 70))
+duck = pygame.transform.scale(duck, (50, 70))
+farmer = pygame.transform.scale(farmer, (50, 70))
+
 # Establece imagenes
 x       = 10
 y       = 425
