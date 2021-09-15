@@ -54,6 +54,9 @@ def reiniciar_sistema():
     '''
 
     global Lado_A, Lado_B, Path     # variables origen y destino globales
+    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']     # variable lado origen
+    Lado_B = []                                         # variable lado destino
+    Path = []                                           # variable movimientos realizados
     
 
 
