@@ -43,7 +43,7 @@ def get_characters(d, p1, p2):
         character = fox
     elif p2 == 'Maiz':
         character = corn
-    elif p2 == 'Ganzo':
+    elif p2 == 'Ganso':
         character = duck
     else:
         character = farmer
